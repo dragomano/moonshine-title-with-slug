@@ -1,0 +1,71 @@
+{
+  "name": "bugo/moonshine-title-with-slug",
+  "description": "Title + slug field for MoonShine with auto-slug generation, live permalink preview, and inline editing.",
+  "keywords": [
+    "framework",
+    "laravel",
+    "moonshine",
+    "slug",
+    "permalink",
+    "livewire"
+  ],
+  "homepage": "https://github.com/dragomano/moonshine-title-with-slug",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bugo",
+      "email": "bugo@dragomano.ru"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "moonshine/moonshine": "^4.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.29",
+    "orchestra/testbench": "^10.0|^11.0",
+    "pestphp/pest": "^3.0|^4.0",
+    "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+    "rector/rector": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bugo\\MoonShine\\TitleWithSlug\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "check": "vendor/bin/rector process --dry-run --clear-cache",
+    "rector": "vendor/bin/rector process",
+    "pint": "vendor/bin/pint --parallel --preset per",
+    "test": "vendor/bin/pest --colors=always",
+    "test-coverage": "vendor/bin/pest --colors=always --coverage --min=100",
+    "test-coverage-clover": "vendor/bin/pest --colors=always --min=100 --coverage-clover coverage.xml",
+    "test-coverage-html": "vendor/bin/pest --colors=always --min=100 --coverage-html coverage"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bugo\\MoonShine\\TitleWithSlug\\ServiceProvider"
+      ]
+    }
+  },
+  "conflict": {
+    "moonshine/moonshine": "<4.0"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
